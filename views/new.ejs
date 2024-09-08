@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write New Chat</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+        
+        h2 {
+            color: #333333;
+            margin-bottom: 20px;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+        
+        input[type="text"]:focus, textarea:focus {
+            outline: none;
+            border-color: #007bff; /* Blue color when focused */
+        }
+        
+        textarea {
+            height: 150px; /* Adjust height as needed */
+        }
+        
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #0056b3; /* Darker shade of blue on hover */
+        }
+        
+        button:focus {
+            outline: none; /* Remove default focus outline */
+        }
+        
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        
+        button:disabled:hover {
+            background-color: #cccccc;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Write New Chat</h2>
+        <form method="POST" action="/chats">
+            <input type="text" placeholder="Your Name" name="from" required>
+            <textarea placeholder="Write your message" name="msg" rows="6" required></textarea>
+            <input type="text" placeholder="Receiver's Name" name="to" required>
+            <button type="submit">Create Chat</button>
+        </form>
+    </div>
+</body>
+</html>

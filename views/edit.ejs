@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit your chat</title>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            
+        }
+        
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+        
+        h2 {
+            color: #333333;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            color: #555555;
+            margin-bottom: 15px;
+        }
+        
+        b {
+            color: #007bff; /* Blue color for emphasis */
+        }
+        
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            box-sizing: border-box; /* Ensures padding is included in width */
+        }
+        
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #0056b3; /* Darker shade of blue on hover */
+        }
+        
+        button:focus {
+            outline: none; /* Remove default focus outline */
+        }
+        
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        
+        button:disabled:hover {
+            background-color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Edit your chat: <%= chat._id %></h2>
+        <p>This chat was sent from <b><%= chat.from %></b> to <b><%= chat.to %></b></p>
+        <form method="POST" action="/chats/<%= chat._id %>?_method=PUT">
+            <textarea name="msg" rows="6" cols="50"><%= chat.msg %></textarea>
+            <br>
+            <button>Edit</button>
+        </form>
+    </div>
+</body>
+</html>
